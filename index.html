@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Capture screen with PhantomJS</title>
+	<script type="text/javascript" src="chart.js"></script>	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    	$(document).ready(function () {
+    		$.ajax({
+    			url: 'http://minder.vn/api/courses/courses?srcLang=104&limit=12&skip=0',
+    			type: 'get',
+    			dataType: 'json',
+    			success: function (data) {
+    				var listP = "";
+    				data = data.Courses;    				
+    				for (var i = 0; i < data.length; i++) {
+    					var p = "<p>" + data[i].name + "</p>";
+    					listP += p;
+    				}
+
+    				listP += "<div id='foo'></div>";
+    				$('.list-p').html(listP);
+    			}
+    		})
+    	})
+    </script>
+</head>
+<body style="background: white">
+	<h1>Xin chao</h1>
+	<div class="list-p"></div>
+</body>
+</html>
