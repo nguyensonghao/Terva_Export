@@ -28,6 +28,10 @@ request(url, function (error, response, body) {
 	};
 	
 	pdf.create(html, options).toFile('./page9/resources/page9.pdf', function(err, res) {
-	  	console.log("Render pdf successfully");
+		if (err) {
+			console.log(err);
+		} else {
+			console.log("Render pdf successfully");
+		}
 	})
 });
